@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Yuriy" id="1">
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA inventory
+        </sql>
+        <createTable tableName="device" schemaName="inventory">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="device_model_id" type="varchar(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="serial_number" type="varchar(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_acquired" type="timestamptz">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint schemaName="inventory" tableName="device" columnNames="device_model_id, serial_number"/>
+    </changeSet>
+
+</databaseChangeLog>
