@@ -21,7 +21,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter')
     compile('org.springframework.boot:spring-boot-starter-web')
 
-    // https://mvnrepository.com/artifact/io.swagger/swagger-annotations
     compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.22'
 
 

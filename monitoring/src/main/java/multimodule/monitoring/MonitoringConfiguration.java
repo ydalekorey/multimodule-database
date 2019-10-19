@@ -1,4 +1,4 @@
-package multimodule.monitoring.config;
+package multimodule.monitoring;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.util.Assert;
 
 @Configuration
-@ComponentScan(basePackages = {"multimodule.monitoring"}, nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
-@EnableJpaRepositories(basePackages = {"multimodule.monitoring.repository"})
-@EntityScan("multimodule.monitoring.model")
+@ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
+@EnableJpaRepositories
+@EntityScan
 public class MonitoringConfiguration {
 }
 

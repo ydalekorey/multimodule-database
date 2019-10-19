@@ -1,7 +1,7 @@
 package multimodule.application;
 
-import multimodule.inventory.config.InventoryConfiguration;
-import multimodule.monitoring.config.MonitoringConfiguration;
+import multimodule.inventory.InventoryConfiguration;
+import multimodule.monitoring.MonitoringConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
