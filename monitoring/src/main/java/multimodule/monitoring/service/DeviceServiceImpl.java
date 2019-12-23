@@ -1,7 +1,7 @@
 package multimodule.monitoring.service;
 
 import multimodule.monitoring.model.Device;
-import multimodule.monitoring.repository.MonitoringDeviceRepository;
+import multimodule.monitoring.repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,30 +11,30 @@ import java.util.UUID;
 @Service
 public class DeviceServiceImpl implements DeviceService {
     @Autowired
-    private MonitoringDeviceRepository monitoringDeviceRepository;
+    private DeviceRepository deviceRepository;
 
     @Override
     public Device create(Device device) {
-        return monitoringDeviceRepository.save(device);
+        return deviceRepository.save(device);
     }
 
     @Override
     public Optional<Device> getById(UUID deviceId) {
-        return monitoringDeviceRepository.findById(deviceId);
+        return deviceRepository.findById(deviceId);
     }
 
     @Override
     public void update(Device device) {
-        monitoringDeviceRepository.save(device);
+        deviceRepository.save(device);
     }
 
     @Override
     public void deleteById(UUID deviceId) {
-        monitoringDeviceRepository.deleteById(deviceId);
+        deviceRepository.deleteById(deviceId);
     }
 
     @Override
     public Iterable<Device> getAll() {
-        return monitoringDeviceRepository.findAll();
+        return deviceRepository.findAll();
     }
 }

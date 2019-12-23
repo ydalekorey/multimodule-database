@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Testcontainers
-public class MonitoringDeviceRepositoryTest {
+public class DeviceRepositoryTest {
 
     @Container
     private static final SharedPostgresContainer postgresContainer = SharedPostgresContainer.getInstance();
 
     @Autowired
-    private MonitoringDeviceRepository deviceRepository;
+    private DeviceRepository deviceRepository;
 
     @Autowired
     private TestEntityManager entityManager;

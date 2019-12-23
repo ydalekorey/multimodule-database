@@ -1,7 +1,7 @@
 package multimodule.inventory.service;
 
 import multimodule.inventory.model.Device;
-import multimodule.inventory.repository.InventoryDeviceRepository;
+import multimodule.inventory.repository.DeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,30 +12,30 @@ import java.util.UUID;
 public class DeviceServiceImpl implements DeviceService {
 
     @Autowired
-    private InventoryDeviceRepository inventoryDeviceRepository;
+    private DeviceRepository deviceRepository;
 
     @Override
     public Device create(Device device) {
-        return inventoryDeviceRepository.save(device);
+        return deviceRepository.save(device);
     }
 
     @Override
     public Optional<Device> getById(UUID deviceId) {
-        return inventoryDeviceRepository.findById(deviceId);
+        return deviceRepository.findById(deviceId);
     }
 
     @Override
     public void update(Device device) {
-        inventoryDeviceRepository.save(device);
+        deviceRepository.save(device);
     }
 
     @Override
     public void deleteById(UUID deviceId) {
-        inventoryDeviceRepository.deleteById(deviceId);
+        deviceRepository.deleteById(deviceId);
     }
 
     @Override
     public Iterable<Device> getAll() {
-        return inventoryDeviceRepository.findAll();
+        return deviceRepository.findAll();
     }
 }
