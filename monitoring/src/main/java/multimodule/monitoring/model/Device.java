@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.UUID;
 
-@Entity
+@Entity//(name = "monitoringDevice")
 @Table(name = "device", schema = "monitoring")
 public class Device {
     @Id

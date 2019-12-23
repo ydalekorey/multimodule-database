@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-@Entity
+@Entity//(name = "inventoryDevice")
 @Table(name = "device", schema = "inventory")
 public class Device {
     @Id
