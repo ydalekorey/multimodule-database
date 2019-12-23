@@ -1,5 +1,8 @@
 package multimodule.monitoring.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.UUID;
 
-@Entity//(name = "monitoringDevice")
+@Entity(name = "monitoringDevice")
 @Table(name = "device", schema = "monitoring")
+@Getter
+@Setter
 public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,29 +26,4 @@ public class Device {
 
     @Column(name = "serial_number")
     private String serialNumber;
-
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
 }

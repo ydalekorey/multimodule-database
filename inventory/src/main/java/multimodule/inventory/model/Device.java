@@ -1,5 +1,8 @@
 package multimodule.inventory.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +12,10 @@ import javax.persistence.Table;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-@Entity//(name = "inventoryDevice")
+@Entity(name = "inventoryDevice")
 @Table(name = "device", schema = "inventory")
+@Getter
+@Setter
 public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,37 +30,4 @@ public class Device {
 
     @Column(name = "date_acquired")
     private ZonedDateTime dateAcquired;
-
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getDeviceModelId() {
-        return deviceModelId;
-    }
-
-    public void setDeviceModelId(String deviceModelId) {
-        this.deviceModelId = deviceModelId;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public ZonedDateTime getDateAcquired() {
-        return dateAcquired;
-    }
-
-    public void setDateAcquired(ZonedDateTime dateAcquired) {
-        this.dateAcquired = dateAcquired;
-    }
 }
