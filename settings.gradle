@@ -3,8 +3,16 @@ rootProject.name = 'modular-monolith'
 include 'common'
 include 'common-test'
 include 'application'
-include 'monitoring'
-include 'inventory'
-include 'mission-control'
-include 'care-planning'
+
+include 'monitoring:monitoring-api'
+include 'monitoring:monitoring-service'
+
+include 'inventory:inventory-api'
+include 'inventory:inventory-service'
+
+include 'mission-control:mission-control-api'
+include 'mission-control:mission-control-service'
+
+include 'care-planning:care-planning-api'
+include 'care-planning:care-planning-service'
 
