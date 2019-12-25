@@ -12,7 +12,6 @@ dependencies {
     implementation project(':care-planning')
     implementation project(':mission-control')
 
-
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 

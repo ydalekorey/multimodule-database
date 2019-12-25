@@ -1,4 +1,4 @@
-rootProject.name = 'gs-multi-module'
+rootProject.name = 'modular-monolith'
 
 include 'common'
 include 'common-test'
