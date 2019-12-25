@@ -23,6 +23,39 @@
             </column>
         </createTable>
         <addUniqueConstraint schemaName="inventory" tableName="device" columnNames="device_model_id, serial_number"/>
-    </changeSet>
 
+        <createTable tableName="patient" schemaName="inventory">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="tablet" schemaName="inventory">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="patient_id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="application_account" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableSchemaName="inventory"
+                baseColumnNames="patient_id"
+                baseTableName="tablet"
+                constraintName="tablet_to_patient_fk"
+                referencedTableSchemaName="inventory"
+                referencedColumnNames="id"
+                referencedTableName="patient"/>
+
+    </changeSet>
 </databaseChangeLog>

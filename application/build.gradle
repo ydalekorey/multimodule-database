@@ -7,8 +7,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     implementation project(':common')
-    compile project(':monitoring')
-    compile project(':inventory')
+    implementation project(':monitoring')
+    implementation project(':inventory')
+    implementation project(':care-planning')
+    implementation project(':mission-control')
+
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

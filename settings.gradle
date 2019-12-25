@@ -5,4 +5,6 @@ include 'common-test'
 include 'application'
 include 'monitoring'
 include 'inventory'
+include 'mission-control'
+include 'care-planning'
 

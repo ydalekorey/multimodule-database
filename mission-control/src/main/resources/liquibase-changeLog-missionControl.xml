@@ -4,25 +4,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-
     <changeSet author="Yuriy" id="1">
         <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA monitoring
+            CREATE SCHEMA missioncontrol
         </sql>
-        <createTable tableName="device" schemaName="monitoring">
-            <column name="id" type="uuid">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
-            </column>
-            <column name="access_token" type="varchar(250)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="serial_number" type="varchar(250)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-
-        <createTable tableName="patient" schemaName="monitoring">
+        <createTable tableName="patient" schemaName="missioncontrol">
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -31,7 +17,7 @@
             </column>
         </createTable>
 
-        <createTable tableName="tablet" schemaName="monitoring">
+        <createTable tableName="tablet" schemaName="missioncontrol">
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -44,14 +30,35 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableSchemaName="monitoring"
+                baseTableSchemaName="missioncontrol"
                 baseColumnNames="patient_id"
                 baseTableName="tablet"
                 constraintName="tablet_to_patient_fk"
-                referencedTableSchemaName="monitoring"
+                referencedTableSchemaName="missioncontrol"
                 referencedColumnNames="id"
                 referencedTableName="patient"/>
 
+
+        <createTable tableName="appointment" schemaName="missioncontrol">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="patient_id" type="uuid">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="date_time" type="timestamptz">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableSchemaName="missioncontrol"
+                baseColumnNames="patient_id"
+                baseTableName="appointment"
+                constraintName="appointment_to_patient_fk"
+                referencedTableSchemaName="missioncontrol"
+                referencedColumnNames="id"
+                referencedTableName="patient"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -1,11 +1,15 @@
 package multimodule.inventory.web.dto;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import multimodule.inventory.model.Device;
 
 import java.time.ZonedDateTime;
 
 @ApiModel("Inventory Device")
+@Getter
+@Setter
 public class CreateOrUpdateDeviceCommand {
 
     private String deviceModelId;
@@ -20,29 +24,5 @@ public class CreateOrUpdateDeviceCommand {
         device.setDeviceModelId(deviceModelId);
         device.setSerialNumber(serialNumber);
         return device;
-    }
-
-    public String getDeviceModelId() {
-        return deviceModelId;
-    }
-
-    public void setDeviceModelId(String deviceModelId) {
-        this.deviceModelId = deviceModelId;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public ZonedDateTime getDateAcquired() {
-        return dateAcquired;
-    }
-
-    public void setDateAcquired(ZonedDateTime dateAcquired) {
-        this.dateAcquired = dateAcquired;
     }
 }
