@@ -1,6 +1,9 @@
 package multimodule.inventory.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -14,6 +17,9 @@ import java.util.UUID;
 @Table(name = "patient", schema = "inventory")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Patient {
     @Id
     @Column(name = "id")

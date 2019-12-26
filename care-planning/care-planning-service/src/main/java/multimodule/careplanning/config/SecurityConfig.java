@@ -9,6 +9,6 @@ public class SecurityConfig {
     @Bean("carePlanningSecurityMapping")
     public WebSecurityMapping webSecurityMapping() {
         return registry -> registry
-                .antMatchers("/care-planning/**").authenticated();
+                .antMatchers("/care-planning/**").permitAll();
     }
 }

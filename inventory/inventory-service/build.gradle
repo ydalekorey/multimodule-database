@@ -3,6 +3,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     implementation project(':common')
+    implementation project(':care-planning:care-planning-api')
 
     implementation('org.springframework.boot:spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-security')
