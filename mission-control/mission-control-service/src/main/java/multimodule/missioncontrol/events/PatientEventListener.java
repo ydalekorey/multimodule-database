@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class MissionControlPatientEventListener {
+public class PatientEventListener {
 
     @Autowired
     private EventBus eventBus;

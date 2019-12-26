@@ -5,6 +5,7 @@ dependencies {
     implementation project(':common')
 
     implementation project(':care-planning:care-planning-api')
+    implementation project(':inventory:inventory-api')
 
     implementation('org.springframework.boot:spring-boot-starter')
     implementation('org.springframework.boot:spring-boot-starter-security')

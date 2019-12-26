@@ -33,7 +33,7 @@
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
             <column name="patient_id" type="uuid">
-                <constraints primaryKey="true" nullable="false" unique="true"/>
+                <constraints primaryKey="true" unique="true"/>
             </column>
             <column name="application_account" type="varchar(250)">
                 <constraints nullable="false"/>

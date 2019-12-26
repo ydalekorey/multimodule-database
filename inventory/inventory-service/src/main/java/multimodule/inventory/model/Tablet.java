@@ -27,6 +27,9 @@ public class Tablet {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @Column(name = "serial_number")
+    private String serialNumber;
+
     @Column(name = "application_account")
     private String applicationAccount;
 }
