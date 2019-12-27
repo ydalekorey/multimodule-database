@@ -5,10 +5,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="Yuriy" id="1">
-        <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA inventory
-        </sql>
-        <createTable tableName="device" schemaName="inventory">
+        <createTable tableName="device" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -22,9 +19,9 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <addUniqueConstraint schemaName="inventory" tableName="device" columnNames="device_model_id, serial_number"/>
+        <addUniqueConstraint  tableName="device" columnNames="device_model_id, serial_number"/>
 
-        <createTable tableName="patient" schemaName="inventory">
+        <createTable tableName="patient" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -36,7 +33,7 @@
             </column>
         </createTable>
 
-        <createTable tableName="tablet" schemaName="inventory">
+        <createTable tableName="tablet" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -52,11 +49,9 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableSchemaName="inventory"
                 baseColumnNames="patient_id"
                 baseTableName="tablet"
                 constraintName="tablet_to_patient_fk"
-                referencedTableSchemaName="inventory"
                 referencedColumnNames="id"
                 referencedTableName="patient"/>
 

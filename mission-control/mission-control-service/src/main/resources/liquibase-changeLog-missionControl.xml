@@ -5,10 +5,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="Yuriy" id="1">
-        <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA missioncontrol
-        </sql>
-        <createTable tableName="patient" schemaName="missioncontrol">
+        <createTable tableName="patient" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -17,7 +14,7 @@
             </column>
         </createTable>
 
-        <createTable tableName="tablet" schemaName="missioncontrol">
+        <createTable tableName="tablet" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -30,16 +27,14 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableSchemaName="missioncontrol"
                 baseColumnNames="patient_id"
                 baseTableName="tablet"
                 constraintName="tablet_to_patient_fk"
-                referencedTableSchemaName="missioncontrol"
                 referencedColumnNames="id"
                 referencedTableName="patient"/>
 
 
-        <createTable tableName="appointment" schemaName="missioncontrol">
+        <createTable tableName="appointment" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -52,11 +47,9 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableSchemaName="missioncontrol"
                 baseColumnNames="patient_id"
                 baseTableName="appointment"
                 constraintName="appointment_to_patient_fk"
-                referencedTableSchemaName="missioncontrol"
                 referencedColumnNames="id"
                 referencedTableName="patient"/>
     </changeSet>

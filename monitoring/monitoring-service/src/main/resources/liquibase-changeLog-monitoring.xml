@@ -6,10 +6,7 @@
 
 
     <changeSet author="Yuriy" id="1">
-        <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA monitoring
-        </sql>
-        <createTable tableName="device" schemaName="monitoring">
+        <createTable tableName="device" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -22,13 +19,13 @@
         </createTable>
 
 
-        <createTable tableName="patient" schemaName="monitoring">
+        <createTable tableName="patient" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
         </createTable>
 
-        <createTable tableName="tablet" schemaName="monitoring">
+        <createTable tableName="tablet" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
@@ -41,11 +38,9 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableSchemaName="monitoring"
                 baseColumnNames="patient_id"
                 baseTableName="tablet"
                 constraintName="tablet_to_patient_fk"
-                referencedTableSchemaName="monitoring"
                 referencedColumnNames="id"
                 referencedTableName="patient"/>
 

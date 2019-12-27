@@ -5,10 +5,7 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="Yuriy" id="1">
-        <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA careplanning
-        </sql>
-        <createTable tableName="patient" schemaName="careplanning">
+        <createTable tableName="patient" >
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false" unique="true"/>
             </column>
