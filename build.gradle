@@ -3,7 +3,7 @@ plugins {
 }
 
 subprojects {
-    group = 'org.ydalekorey.multimodule'
+    group = 'com.medicallyhome.multimodule'
     version = '0.0.1-SNAPSHOT'
 
     apply plugin: 'java'
